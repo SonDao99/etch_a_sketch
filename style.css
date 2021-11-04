@@ -1,0 +1,128 @@
+@font-face {
+    font-family: PoemLetters;
+    src: url(PoemLettersSerifRegular-lgggX.ttf);
+}
+
+@font-face {
+    font-family: Pasti;
+    src: url(PastiRegular-mLXnm.otf);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-family: Pasti  ;
+}
+
+.preferences {
+    background-color: mistyrose;
+    height: 700px;
+    width: 300px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+.gridTitle, .penTitle {
+    font-size: 50px;
+    color: indianred;
+    text-shadow: 1px 1px darkslategray;
+}
+
+.gridButtons, .penButtons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    gap: 10px;
+}
+
+.clearButton {
+    border-top: solid indianred;
+    width: inherit;
+    padding-top: 20px;
+}
+
+button {
+    border-radius: 30px;
+    width: 110px;
+    height: 70px;
+    font-family: inherit;
+    background-color: azure;
+    color: pink;
+    border-width: 0px;
+    font-size: 25px;
+    /*text-shadow: 1px 1px darkslategray;*/
+}
+
+button:hover{
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.24); /*0 2px 2px 0 rgba(0,0,0,0.19);*/
+}
+
+button:active {
+    box-shadow: unset;
+}
+
+.black, .red, .blue, .green, .random {
+    color: white;
+}
+
+.black {
+    background-color: black;
+}
+
+.red {
+    background-color: darkred;
+}
+
+.blue {
+    background-color: navy;
+}
+
+.green {
+    background-color: mediumseagreen;
+}
+
+.random {
+    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+}
+
+.container {
+    width: 1000px;
+    height: 700px;
+    margin: 5px;
+    border-radius: 30px;
+    background-color: indianred;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /*box-shadow: 5px 5px grey;*/
+    /*gap: 40px;*/
+}
+
+.title {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    font-size: 60px;
+    color: gold;
+    font-family: PoemLetters;
+}
+
+.grid {
+    width: 800px;
+    height: 500px;
+    background-color: floralwhite;
+    /*box-shadow: 5px 5px inset grey;*/
+    display: flex;
+    flex-wrap: wrap;
+}

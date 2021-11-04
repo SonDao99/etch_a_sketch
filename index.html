@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-A-Sketch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="preferences">
+        <div class="gridPref">
+            <div class="gridTitle">Grid</div>
+            <div class="gridButtons">
+                <button class="small">Small</button>
+                <button class="medium">Medium</button>
+                <button class="large">Large</button>
+                <button class="xl">XL</button>
+            </div>
+        </div>
+        <div class="penPref">
+            <div class="penTitle">Pen</div>
+            <div class="penButtons">
+                <button class="black">Black</button>
+                <button class="red">Red</button>
+                <button class="blue">Blue</button>
+                <button class="green" inputmode="on" type="color">Green</button>
+                <button class="random">Random</button>
+                <button class="eraser">Eraser</button>
+            </div>
+        </div>
+        <div class="clearButton">
+            <button class="clear">Clear</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="title">Etch-A-Sketch</div>
+        <div class="grid"></div>
+    </div>
+
+    <script>
+
+        const grid = document.querySelector('.grid');
+
+        function createGrid(x,y) {
+            while (grid.hasChildNodes()) {
+                grid.removeChild(grid.lastChild);
+            }
+            let dimension = 800/x;
+            for (let i=0; i<=x*y-1; i++) {
+                const div = document.createElement('div');
+                div.setAttribute('style', 'box-shadow:0px 0px 0px 1px gainsboro inset;');
+                div.style.width = dimension.toString() + 'px';
+                div.style.height = dimension.toString() + 'px';
+                div.classList.add('box');
+                grid.appendChild(div);
+            }
+            sketch();
+        }
+
+        function color(e) {
+            this.style.backgroundColor = penColor;
+        }
+        
+        let penColor = 'black';
+
+        function sketch() {
+            const boxes = document.querySelectorAll('.box');
+            boxes.forEach(box => box.addEventListener('mouseover', color));
+        }
+
+        createGrid(32, 20);
+
+        /*Defining the buttons which create grids of different sizes*/
+
+        const small = document.querySelector('.small');
+        small.addEventListener('click', () => {
+            createGrid(40,25);
+        });
+
+        const medium = document.querySelector('.medium');
+        medium.addEventListener('click', () => {
+            createGrid(32,20);
+        });
+
+        const large = document.querySelector('.large');
+        large.addEventListener('click', () => {
+            createGrid(24,15);
+        });
+
+        const xl = document.querySelector('.xl');
+        xl.addEventListener('click', () => {
+            createGrid(16,10);
+        });
+
+
+        /*Defining the buttons which define the different color presets*/
+
+        const black = document.querySelector('.black');
+        black.addEventListener('click', () => {
+            penColor = 'black';
+        });
+
+        const red = document.querySelector('.red');
+        red.addEventListener('click', () => {
+            penColor = 'darkred';
+        });
+
+        const blue = document.querySelector('.blue');
+        blue.addEventListener('click', () => {
+            penColor = 'navy';
+        });
+
+        const green = document.querySelector('.green');
+        green.addEventListener('click', () => {
+            penColor = 'mediumseagreen';
+        });
+
+        const random = document.querySelector('.random');
+        random.addEventListener('click', () => {
+            penColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+        });
+
+        const eraser = document.querySelector('.eraser');
+        eraser.addEventListener('click', () => {
+            penColor = 'floralwhite';
+        });
+
+        /*Defining the clear button*/
+
+        const clear = document.querySelector('.clear');
+        clear.addEventListener('click', () => {
+            const boxes = document.querySelectorAll('.box');
+            boxes.forEach(box => box.style.backgroundColor = 'floralwhite');
+        });
+
+
+    </script>
+</body>
+</html>
